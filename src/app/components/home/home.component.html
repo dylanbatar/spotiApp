@@ -1,0 +1,11 @@
+<p>Calor y cemento es lo que hay en esta monda</p>
+<div class="card-columns">
+  <div class="card" *ngFor="let song of newSongs  ">
+    <img [src]="song.images[0].url" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{song.name}} - {{song.artists[0].name}}</h5>
+        <p class="card-text">{{song.release_date}}</p>
+        <p class="card-text">{{song.album_type}}</p>
+    </div>
+  </div>
+</div>
