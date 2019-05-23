@@ -15,7 +15,7 @@ export class SpotifyService {
     const url = `https://api.spotify.com/v1/${query}`;
     // headers de la API (el token se vence cada 1 hora)
     const headers = new HttpHeaders({
-      'Authorization': `Bearer BQC8b7_XepR5GnOHSbTPHGXXyOX-GsiXDxr14i3ZbmYLCci15NdnNucgt8Gz0c6FSy2cjjRnAFYmNqm4Oxs`
+      'Authorization': `Bearer "INSERTAR AQUI EL TOKEN GENERADO POR SPOTIFY (QUITAR COMILLAS)"`
     });
     return this.http.get(url, { headers });
   }
