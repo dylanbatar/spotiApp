@@ -1,3 +1,37 @@
-<p>
-  artista works!
-</p>
+<app-loading *ngIf="loading"></app-loading>
+
+  <div class="row" *ngIf="!loading">
+    <div class="col-md-2">
+      <img [src]="datos.images | noImages" class="rounded-circle img-thumbnail" width="150" height="150" alt="">
+    </div>
+    <div class="col">
+      <h2 class="d-block">{{datos.name}}</h2>
+      <p><a [href]="datos.external_urls.spotify" target="_blank">ir a la pagina del artista</a>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <button (click)="regresar" class="btn btn-outline-danger px-5" [routerLink]="[ '/search',termino]">Regresar</button>
+    </div>
+    <div class="w-100"></div>
+    <div class="col">
+      <h2>Top Tracks</h2>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Foto</th>
+            <th scope="col">Album</th>
+            <th scope="col">Cancion</th>
+            <th scope="col">Vista previa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of tracks">
+            <td><img [src]="item.album.images[0].url" width="50" height="50" alt=""></td>
+            <td>{{item.album.name}}</td>
+            <td>{{item.name}}</td>
+            <td><iframe [src]="item.id | domseguro:'https://open.spotify.com/embed/track/'" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

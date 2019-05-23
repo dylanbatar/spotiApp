@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: 'home' , component: HomeComponent},
   {path: 'artista' , component: ArtistaComponent},
   {path: 'search/:termino' , component: SearchComponent},
+  {path: 'artista/:termino' , component: ArtistaComponent},
   {path: '' , pathMatch: 'full', redirectTo: 'home'},
 
 ];

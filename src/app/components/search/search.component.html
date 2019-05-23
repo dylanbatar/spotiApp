@@ -1,16 +1,9 @@
 <p>Calor y cemento es lo que hay en esta monda</p>
-
 <div class="row">
   <div class="col">
     <input #buscarDatos (keyup)="buscar(buscarDatos.value)" type="text" class="form-control" placeholder="Busca tu artista...">
   </div>
 </div>
-
-<div class="card-columns my-4">
-  <div class="card" *ngFor="let item of resultados  ">
-    <img [src]="item.images[0].url" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{item.name}}</h5>
-    </div>
-  </div>
-</div>
+<app-loading *ngIf="loading"></app-loading>
+<app-alert [alert]="alert" [error]="error" ></app-alert>
+<app-tarjetas [items]="resultados"></app-tarjetas>
